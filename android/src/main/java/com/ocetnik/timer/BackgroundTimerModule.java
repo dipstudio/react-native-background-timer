@@ -1,6 +1,7 @@
 package com.ocetnik.timer;
 
 import android.os.Handler;
+import android.os.PowerManager;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
@@ -10,7 +11,11 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import java.lang.Runnable;
 
+import static android.content.Context.POWER_SERVICE;
+
 public class BackgroundTimerModule extends ReactContextBaseJavaModule {
+    private PowerManager powerManager;
+    private PowerManager.WakeLock wakeLock;
 
     private Handler handler;
     private ReactContext reactContext;
@@ -19,6 +24,10 @@ public class BackgroundTimerModule extends ReactContextBaseJavaModule {
     public BackgroundTimerModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
+
+        this.powerManager = (PowerManager) getReactApplicationContext().getSystemService(POWER_SERVICE);
+        this.wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "rewieer_bg_wakelock");
+        this.wakeLock.acquire();
     }
 
     @Override
