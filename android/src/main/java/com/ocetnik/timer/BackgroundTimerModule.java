@@ -32,7 +32,7 @@ public class BackgroundTimerModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "BackgroundTimer";
+        return "RNBackgroundTimer";
     }
 
     @ReactMethod

@@ -11,19 +11,18 @@ import java.util.Collections;
 import java.util.List;
 
 public class BackgroundTimerPackage implements ReactPackage {
-    
+
     public BackgroundTimerPackage() {
     }
-    
-    
+
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new BackgroundTimerModule(reactContext));
-        
+
         return modules;
     }
     
-    
+
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
