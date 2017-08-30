@@ -15,7 +15,7 @@ public class BackgroundTimerPackage implements ReactPackage {
     public BackgroundTimerPackage() {
     }
     
-    @Override
+    
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new BackgroundTimerModule(reactContext));
@@ -23,12 +23,12 @@ public class BackgroundTimerPackage implements ReactPackage {
         return modules;
     }
     
-    @Override
+    
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
     
-    @Override
+    
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Collections.emptyList();
     }
